@@ -7,7 +7,7 @@ import AmenitiesBlog from "../components/blog/AmenitiesBlog";
 import LocationAdvantages from "../components/blog/LocationAdvantages";
 import InvestmentsInsights from "../components/blog/InvestmentsInsights";
 import ChoosingVilla from "../components/blog/ChoosingVilla";
-import FAQSection from "../components/blog/FAQsection";
+import FAQSection from "../components/blog/FAQSection";
 import BlogHero from "../components/blog/BlogHero";
 const Blog = () => {
   return (
