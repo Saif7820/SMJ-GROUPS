@@ -50,18 +50,30 @@ const CustomerSupport = () => {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-[#1A1A1A] text-[35px] md:text-[45px] font-serif font-normal leading-tight uppercase mb-6 tracking-wide">
+        <h2 className="text-[#1A1A1A] text-[42px] md:text-[54px] font-serif font-normal leading-tight uppercase mb-6 tracking-wide">
           Customer Support
         </h2>
 
-        {/* RESTORED: Aapka original divider code jo pehle file me maujood tha */}
-        <div className="flex flex-col items-center mb-10">
-          <div className="w-24 h-[1px] bg-[#D4A056]"></div>
-          <div className="w-[1px] h-4 bg-[#D4A056]"></div>
+        {/* UPDATED DIVIDER: Width ko max-w-[1700px] se kam karke [170px] kiya aur top pe perfectly shift kiya hai */}
+        <div className="flex items-start justify-center w-full max-w-[170px] mx-auto relative mb-10 pt-1.5">
+          {/* Left Fading Line - Isse top pe bilkul chipka diya hai mt-[1px] se */}
+          <div className="flex-1 h-[2.5px] bg-gradient-to-r from-transparent to-[#D4A056] mt-[1px]" />
+          
+          {/* Center Vertical Element */}
+          <div className="flex flex-col items-center px-1.5 relative">
+            {/* Small Top Center Line (Tick) */}
+            <div className="w-[2.5px] h-[5px] bg-[#D4A056] absolute top-[-5px]" />
+            
+            {/* Main Vertical Center Line */}
+            <div className="w-[2.5px] h-[32px] bg-[#D4A056]" />
+          </div>
+          
+          {/* Right Fading Line */}
+          <div className="flex-1 h-[2.5px] bg-gradient-to-l from-transparent to-[#D4A056] mt-[1px]" />
         </div>
 
         {/* Description */}
-        <p className="text-gray-500 text-[14px] md:text-[17px] font-sans font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+        <p className="text-[#1E2939] text-[14px] md:text-[17px] font-sans font-light max-w-2xl mx-auto mb-8 leading-relaxed">
           Have a query for us? Leave us a message and we'll get in touch within 24 hours.
         </p>
 

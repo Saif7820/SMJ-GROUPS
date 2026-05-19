@@ -55,8 +55,8 @@ const ContactHero = () => {
           className="absolute inset-0 flex flex-col justify-end pb-28 px-6 md:px-36 pointer-events-none"
         >
           {/* Get In Touch Badge */}
-          <div className="w-fit mb-8 border border-[#D4A056] px-5 py-2 rounded-full backdrop-blur-sm">
-            <span className="text-[#D4A056] text-[10px] md:text-[12px] font-medium tracking-[3px] uppercase">
+          <div className="w-fit mb-8 border border-[#B99630] px-4 py-1.5 rounded-full backdrop-blur-sm">
+            <span className="text-[#B99630] text-[10px] md:text-[12px] font-medium tracking-[3px] uppercase">
               Get in Touch
             </span>
           </div>

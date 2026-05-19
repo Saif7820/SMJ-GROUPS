@@ -44,3 +44,26 @@ h5,
 h6 {
   font-family: 'Rossanova', serif;
 }
+/* पूरे वेब पेज के स्क्रॉलर के लिए */
+::-webkit-scrollbar {
+  width: 2px; /* विड्थ को एकदम कम (पतला) रखने के लिए */
+}
+
+/* स्क्रॉलर के पीछे का बैकग्राउंड ट्रैक */
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* इमेज की तरह डार्क/ब्लैक लुक */
+}
+
+/* खिसकने वाली गोल्डन पट्टी (Thumb) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #BF9628, #D2AA7F); /* गोल्डन ग्रेडिएंट */
+  border-radius: 0px;
+  
+  /* हैंडल की हाइट को थोड़ा बड़ा/लंबा दिखाने के लिए (Browser default handle size) */
+  min-height: 150px; 
+}
+
+/* होवर करने पर */
+::-webkit-scrollbar-thumb:hover {
+  background: #D2AA7F;
+}

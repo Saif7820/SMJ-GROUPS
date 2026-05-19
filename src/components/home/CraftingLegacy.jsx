@@ -19,7 +19,7 @@ const CraftingLegacy = () => {
             Through Excellence
           </h2>
 
-          <p className="text-gray-600 mt-6 text-lg font-normal font-sans">
+          <p className="text-[#596371] mt-6 text-lg font-normal font-sans">
             Where visionary design meets timeless craftsmanship
           </p>
         </div>

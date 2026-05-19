@@ -2,7 +2,7 @@ import React from 'react';
 
 const SmjGroup = () => {
   return (
-    <section className="bg-white py-20 lg:py-24 font-sans">
+    <section className="bg-[#faf9f7] py-20 lg:py-24 font-sans">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
@@ -22,10 +22,14 @@ const SmjGroup = () => {
           <div className="flex justify-center">
             <div className="w-2 h-2 rounded-full bg-[#B99630]/80"></div>
           </div>
+          {/* Gold underline */}
+          <div className="flex justify-center mt-4">
+            <div className="w-20 h-[1.5px] bg-[#B99630]/70"></div>
+          </div>
         </div>
 
         {/* Content Paragraphs */}
-        <div className="max-w-6xl mx-auto space-y-8 text-gray-500 text-[16px] lg:text-[17px] leading-[1.8] text-left font-sans font-normal">
+        <div className="max-w-6xl mx-auto space-y-8 text-[#4A5565] text-[16px] lg:text-[17px] leading-[1.8] text-left font-sans font-light">
           <p>
             SMJ Group is a diversified real estate group comprising multiple landmark projects, developed 
             with an all-in-one, multidimensional approach to urban growth. Headquartered in Lucknow, 
@@ -48,7 +52,7 @@ const SmjGroup = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="max-w-6xl mx-auto mt-16 p-8 md:py-12 md:px-16 bg-[#FAF9F6] rounded-2xl border border-[#EBE4D5] text-center">
+        <div className="max-w-6xl mx-auto mt-16 p-8 md:py-12 md:px-16 bg-[#faf9f7] rounded-2xl border border-[#EBE4D5] text-center">
           <p className="text-[16px] md:text-[18px] text-gray-500 font-sans leading-relaxed italic">
             "By combining innovation, quality execution, and an end-user centric approach, we 
             continue to shape modern urban environments while building trust, credibility, 

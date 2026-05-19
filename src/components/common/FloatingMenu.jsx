@@ -41,23 +41,29 @@ const FloatingMenu = () => {
     onClick,
     href,
     iconColor,
-    isWide
+    iconBg,
+    isWide,
+    isSmall
   }) => {
     const content = (
       <div
-        className={`flex items-center bg-white rounded-full shadow-lg px-3 md:px-4 py-2 hover:scale-105 transition-all cursor-pointer mb-2 border border-gray-50 ${
+        className={`flex items-center bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.12)] transition-all mb-2.5 gap-2.5 ${
           isWide
-            ? 'min-w-[190px] md:min-w-[210px]'
-            : 'min-w-[150px] md:min-w-[170px]'
+            ? 'min-w-[185px] md:min-w-[200px] px-3 py-3'
+            : isSmall
+            ? 'min-w-[130px] md:min-w-[145px] px-2.5 py-2.5'
+            : 'min-w-[148px] md:min-w-[163px] px-3 py-3'
         }`}
       >
-        <div className={`text-lg md:text-xl mr-3 ${iconColor}`}>
-          {icon}
+        <div className={`${isSmall ? 'w-7 h-7 text-base' : 'w-8 h-8 text-[15px]'} rounded-full flex items-center justify-center shrink-0 ${iconBg}`}>
+          <span className={iconColor}>{icon}</span>
         </div>
 
-        <span className="text-gray-700 text-[13px] md:text-[14px] font-semibold">
+        <span className={`text-gray-800 font-bold ${isSmall ? 'text-[13.5px] md:text-[14px]' : 'text-[13px] md:text-[14px]'}`}>
           {label}
         </span>
+
+
       </div>
     );
 
@@ -106,6 +112,7 @@ const FloatingMenu = () => {
               label="Request Callback"
               icon={<HiOutlineMailOpen />}
               iconColor="text-[#D4AF37]"
+              iconBg="bg-[#FDF8EC]"
               isWide={true}
               onClick={() => {
                 setIsModalOpen(true);
@@ -117,6 +124,8 @@ const FloatingMenu = () => {
               label="Call Now"
               icon={<FiPhoneCall />}
               iconColor="text-[#007AFF]"
+              iconBg="bg-[#EEF5FF]"
+              isSmall={true}
               href={`tel:+${phoneNumber}`}
             />
 
@@ -124,6 +133,7 @@ const FloatingMenu = () => {
               label="WhatsApp"
               icon={<FaWhatsapp />}
               iconColor="text-[#25D366]"
+              iconBg="bg-[#EDFBF1]"
               href={whatsappLink}
             />
           </div>
@@ -147,21 +157,22 @@ const FloatingMenu = () => {
       {/* --- Modal Section --- */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4 font-sans text-gray-800">
-          <div className="bg-white w-full max-w-[440px] p-5 md:p-8 relative shadow-2xl rounded-sm animate-in zoom-in duration-200 max-h-[90vh] overflow-y-auto">
-            <button
+          <div className="bg-white w-full max-w-[445px] p-7 md:p-11 relative shadow-2xl rounded-sm animate-in zoom-in duration-200 max-h-[90vh] overflow-y-auto text-center">
+            {/* Close Circle Cross Button */}
+            <button 
               onClick={() => {
                 setIsModalOpen(false);
                 setIsSubmitted(false);
                 setMobile("");
               }}
-              className="absolute top-4 right-5 text-[#D4AF37] text-2xl border border-[#D4AF37] rounded-full p-0.5 hover:bg-[#D4AF37] hover:text-white transition-all"
+              className="absolute top-4 right-4 md:top-5 md:right-5 w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:text-gray-600 text-xs transition-all cursor-pointer font-sans"
             >
-              <IoCloseOutline />
+              ✕
             </button>
 
             {!isSubmitted ? (
               <>
-                <h2 className="text-[#D4AF37] text-[24px] md:text-[28px] font-serif text-center mb-5 md:mb-6 tracking-wide">
+                <h2 className="font-serif text-3xl md:text-[32px] text-[#C5A267] font-normal mb-5 text-center">
                   Request a call back
                 </h2>
 
@@ -209,86 +220,86 @@ const FloatingMenu = () => {
                       setLoading(false);
                     }
                   }}
-                  className="space-y-4"
+                  className="space-y-[18px] text-left"
                 >
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name*"
-                    className="w-full border-b border-gray-300 py-2 outline-none focus:border-[#D4AF37] text-[14px] bg-transparent"
-                    required
-                  />
+                  <div>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name*"
+                      required
+                      className="w-full border-b border-gray-300 py-2 text-[16px] focus:outline-none focus:border-[#C5A267] transition-colors placeholder-gray-400 font-sans"
+                    />
+                  </div>
 
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="E-Mail ID*"
-                    className="w-full border-b border-gray-300 py-2 outline-none focus:border-[#D4AF37] text-[14px] bg-transparent"
-                    required
-                  />
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="E-Mail ID*"
+                      required
+                      className="w-full border-b border-gray-300 py-2 text-[16px] focus:outline-none focus:border-[#C5A267] transition-colors placeholder-gray-400 font-sans"
+                    />
+                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
                     <input
                       type="text"
                       name="country"
                       placeholder="Country*"
-                      className="w-full border-b border-gray-300 py-2 outline-none focus:border-[#D4AF37] text-[14px] bg-transparent"
                       required
+                      className="w-full border-b border-gray-300 py-2 text-[16px] focus:outline-none focus:border-[#C5A267] transition-colors placeholder-gray-400 font-sans"
                     />
+                  </div>
 
+                  <div>
                     <input
                       type="text"
                       name="city"
                       placeholder="City*"
-                      className="w-full border-b border-gray-300 py-2 outline-none focus:border-[#D4AF37] text-[14px] bg-transparent"
                       required
+                      className="w-full border-b border-gray-300 py-2 text-[16px] focus:outline-none focus:border-[#C5A267] transition-colors placeholder-gray-400 font-sans"
                     />
                   </div>
 
-                  <div className="relative flex items-center border-b border-gray-300 py-2 z-50">
-                    <span className="text-gray-500 mr-3 text-[14px] font-medium">
-                      +91
-                    </span>
-
+                  {/* Phone field with +91 indicator */}
+                  <div className="flex items-center gap-3 border-b border-gray-300 py-2">
+                    <span className="text-[16px] font-semibold text-gray-700 font-sans">+91</span>
                     <input
                       type="tel"
                       name="mobile"
                       placeholder="Mobile Number*"
-                      value={mobile}
-                      onChange={(e) =>
-                        setMobile(
-                          e.target.value.replace(/\D/g, "")
-                        )
-                      }
-                      className="w-full outline-none bg-transparent text-[14px] relative z-50"
                       required
-                      maxLength="10"
+                      pattern="[0-9]{10}"
+                      value={mobile}
+                      onChange={(e) => setMobile(e.target.value.replace(/\D/g, ""))}
+                      className="w-full text-[16px] focus:outline-none placeholder-gray-400 font-sans bg-transparent"
                     />
                   </div>
 
-                  <div className="flex items-start space-x-2 text-[10px] text-gray-400 leading-tight pt-1 text-left">
+                  {/* Privacy checkbox section */}
+                  <div className="flex items-start gap-3 pt-1 text-left">
                     <input
                       type="checkbox"
-                      className="mt-0.5 accent-[#D4AF37] h-3 w-3 shrink-0"
+                      id="agreed-floating"
                       required
+                      className="mt-1 accent-[#C5A267]"
                     />
-
-                    <p>
-                      By checking this box, you agree to our{" "}
-                      <span className="underline cursor-pointer text-[#D4AF37]">
-                        Privacy Policy
-                      </span>{" "}
-                      and consent to be contacted.
-                    </p>
+                    <label htmlFor="agreed-floating" className="text-[11px] text-gray-500 leading-normal font-sans">
+                      By checking this box, you agree to our <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[#C5A267] underline">Privacy Policy</a> and consent to be contacted with relevant updates.
+                    </label>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-gradient-to-r from-[#B89222] to-[#C7A53A] text-white py-3 mt-4 font-bold tracking-[0.1em] uppercase shadow-md transition-all hover:brightness-105 disabled:opacity-50"
-                  >
-                    {loading ? "SUBMITTING..." : "SUBMIT →"}
-                  </button>
+                  {/* Submit Button */}
+                  <div className="flex justify-center pt-1">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="bg-gradient-to-r from-[#BF9628] to-[#D2AA7F] text-white px-12 py-3.5 text-xs font-bold tracking-[1.5px] uppercase rounded-md hover:opacity-90 transition-all shadow-md flex items-center gap-2 cursor-pointer"
+                    >
+                      {loading ? "SENDING..." : "Submit \u2192"}
+                    </button>
+                  </div>
 
                   {result && (
                     <p className="text-red-500 text-sm text-center">
@@ -298,19 +309,30 @@ const FloatingMenu = () => {
                 </form>
               </>
             ) : (
-              <div className="text-center py-8 flex flex-col items-center animate-in fade-in duration-500">
-                <div className="w-14 h-14 bg-yellow-50 text-[#D4AF37] rounded-full flex items-center justify-center mb-6 text-2xl border border-yellow-100 shadow-inner">
-                  <span>✓</span>
+              /* Thank You Message View */
+              <div className="py-4 flex flex-col items-center justify-center text-center">
+                <div className="w-14 h-14 bg-[#F5EFE6] text-[#BF9628] rounded-full flex items-center justify-center mb-5 text-xl">
+                  ✓
                 </div>
-
-                <h2 className="text-[#D4AF37] text-[24px] md:text-[28px] font-serif mb-2 tracking-wide">
+                
+                <h2 className="font-serif text-3xl md:text-[32px] text-[#C5A267] font-normal mb-3">
                   Thank you!
                 </h2>
-
-                <p className="text-gray-500 text-sm leading-relaxed max-w-[260px]">
-                  We have received your request and will contact you
-                  shortly.
+                
+                <p className="text-[#444] text-[16px] font-sans max-w-[310px] leading-relaxed mb-6">
+                  We have received your request and will contact you shortly.
                 </p>
+
+                <button
+                  onClick={() => {
+                    setIsModalOpen(false);
+                    setIsSubmitted(false);
+                    setMobile("");
+                  }}
+                  className="bg-gradient-to-r from-[#BF9628] to-[#D2AA7F] text-white px-8 py-3.5 text-xs font-bold tracking-[1.5px] uppercase rounded-md hover:opacity-90 transition-all cursor-pointer shadow-sm"
+                >
+                  Close
+                </button>
               </div>
             )}
           </div>

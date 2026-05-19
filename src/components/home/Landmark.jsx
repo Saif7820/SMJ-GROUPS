@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // इमेजेस इम्पोर्ट करें
 import hero5 from '../../assets/images/hero5.png';
 import hero6 from '../../assets/images/Hero6.png';
 import hero7 from '../../assets/images/house.png';
 
 const Landmark = () => {
+  const navigate = useNavigate();
+
   // Projects Data
   const projects = [
      {
@@ -12,21 +15,24 @@ const Landmark = () => {
       title: "Golf Ridge Tower",
       location: "Residential",
       image: hero5,
-      shortName: "Golf Ridge"
+      shortName: "Golf Ridge",
+      link: "/projects/golf-ridge"
     },
     {
       id: 1,
       title: "Summit Twin Towers",
       location: "Residential",
       image: hero6,
-      shortName: "Summit"
+      shortName: "Summit",
+      link: "/projects/summit"
     },
     {
       id: 2,
       title: "Suraksha Enclave by SMJ Group",
       location: "Complete Integrated Township-Lucknow",
       image: hero7,
-      shortName: "Suraksha"
+      shortName: "Suraksha",
+      link: "/projects/suraksha"
     },
    
   ];
@@ -88,7 +94,10 @@ const Landmark = () => {
                   {projects[activeTab].location}
                 </p>
 
-                <button className="bg-[#BF9628] text-white px-5 md:px-6 py-2 md:py-2.5 rounded-sm uppercase text-xs font-bold hover:opacity-90 transition-all tracking-[0.1em] flex items-center gap-2 font-sans">
+                <button 
+                  onClick={() => navigate(projects[activeTab].link)}
+                  className="bg-[#BF9628] text-white px-5 md:px-6 py-2 md:py-2.5 rounded-sm uppercase text-xs font-bold hover:opacity-90 transition-all tracking-[0.1em] flex items-center gap-2 font-sans cursor-pointer"
+                >
                   View Project <span>→</span>
                 </button>
               </div>

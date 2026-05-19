@@ -140,9 +140,11 @@ const FAQSection = () => {
                     <input name="name" required type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#C5A267]" />
                     <input name="phone" required type="tel" placeholder="Phone Number" className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#C5A267]" />
                     <textarea name="message" required placeholder="How can we help you?" className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#C5A267] h-28 resize-none"></textarea>
-                    <button type="submit" disabled={loading} className="w-full bg-gradient-to-l from-[#F1C376] to-[#B68744] text-white py-4 rounded-xl font-bold tracking-[2px] uppercase text-[11px] shadow-md hover:shadow-xl transition-all cursor-pointer disabled:opacity-50">
-                      {loading ? "SUBMITTING..." : "Submit Enquiry"}
-                    </button>
+                    <div className="flex justify-center pt-2">
+                      <button type="submit" disabled={loading} className="bg-gradient-to-r from-[#BF9628] to-[#D2AA7F] text-white px-12 py-3.5 rounded-xl font-bold tracking-[2px] uppercase text-[11px] shadow-md hover:shadow-xl transition-all cursor-pointer disabled:opacity-50">
+                        {loading ? "SUBMITTING..." : "Submit Enquiry"}
+                      </button>
+                    </div>
                     {result && <p className="text-red-500 text-sm text-center">{result}</p>}
                   </form>
                 </>

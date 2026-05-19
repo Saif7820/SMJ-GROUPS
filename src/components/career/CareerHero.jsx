@@ -50,8 +50,8 @@ const CareerHero = () => {
         >
           {/* Tagline Pill */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="bg-black/40 backdrop-blur-md border border-white/10 px-5 py-1.5 rounded-full shadow-sm">
-              <span className="text-[#D4A056] text-[10px] md:text-[12px] font-bold tracking-[3px] uppercase">
+            <div className="bg-black/30 backdrop-blur-md border border-[#B99630] px-6 py-1.5 rounded-full shadow-sm">
+              <span className="text-[#B99630] text-[10px] md:text-[12px] font-bold tracking-[3px] uppercase">
                 Join Our Team
               </span>
             </div>
